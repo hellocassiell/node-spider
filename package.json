@@ -1,0 +1,23 @@
+{
+  "name": "NodeSpider",
+  "version": "1.0.0",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "cheerio": "^1.0.0-rc.2",
+    "iconv-lite": "^0.4.19",
+    "lodash": "^4.17.4",
+    "request": "^2.83.0"
+  },
+  "devDependencies": {},
+  "description": ""
+}

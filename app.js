@@ -1,37 +1,39 @@
+
 var spider = require('./lib/spider')
 
-spider({
-  url: 'https://m.duitang.com/article/?id=513274',
-  // decoding: 'gb2312'
+spider('http://www.smzdm.com/youhui/', (err, data, body, req) => {
+  if (!err) {
+    console.log(data)
+  }
 }, {
   items: {
-    selector: '#content .wrap-container .article-detail',
+    selector: '.list.list_preferential',
     handler: {
       title: {
-        selector: 'h2'
+        selector: '.itemName a',
+        handler: 'removeTagText'
       },
-      content: {
-        selector: '.blog-content'
+      ht: {
+        selector: '.itemName a span',
+        handler: 'text'
+      },
+      url: {
+        selector: '.itemName a',
+        handler: 'attr:href'
+      },
+      img: {
+        selector: 'img',
+        handler: 'attr:src'
+      },
+      mall: {
+        selector: '.botPart a.mall',
+        handler: 'text'
+      },
+      desc: {
+        selector: '.lrInfo',
+        handler: function ($data) {
+          return $data.html().replace(/<a\b.+?>阅读全文<\/a>/g, '').trim()
+        }
       }
-      // authorPic: {
-      //   selector: ' a img!attr:src'
-      // },
-      // author: {
-      //   selector: ' a span!text'
-      // }
-      // time: {
-      //   selector: ' h3'
-      // },        
-
     }
-  }
-}).then((data) => {
-  // 获取成功
-  if (data && data.items) {
-    var title = data.items.title;
-    // var authorPic = data.items.authorPic;
-    var content = data.items.content;
-    console.log(title);
-    console.log(content)
-  }
-})
+  }})

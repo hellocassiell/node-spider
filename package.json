@@ -19,5 +19,13 @@
     "request": "^2.83.0"
   },
   "devDependencies": {},
-  "description": ""
+  "description": "node爬虫",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hellocassiell/node-spider.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hellocassiell/node-spider/issues"
+  },
+  "homepage": "https://github.com/hellocassiell/node-spider#readme"
 }
